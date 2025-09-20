@@ -73,27 +73,38 @@ class VolleyballRotations {
         },
         attackPositions: {
           1: new TargPosition(1, "S", "setter", {
+            top: "14px",
             bottom: "10px",
-            right: "10px",
+            left: "182px",
+            right: "52px",
           }),
           2: new TargPosition(2, "OH", "outside", {
-            top: "260px",
+            top: "124px",
+            bottom: "210px",
+            left: "234px",
             right: "20px",
           }),
           3: new TargPosition(3, "MB", "middle", {
+            top: "124px",
             bottom: "10px",
+            left: "111px",
             right: "10px",
           }),
           4: new TargPosition(4, "OH", "outside", {
+            top: "125px",
             bottom: "10px",
             right: "10px",
           }),
           5: new TargPosition(5, "OH", "outside", {
+            top: "264px",
             bottom: "70px",
+            left: "20px",
             right: "10px",
           }),
           6: new TargPosition(6, "MB", "middle", {
+            top: "324px",
             bottom: "10px",
+            left: "115px",
             right: "10px",
           }),
         },
@@ -162,6 +173,7 @@ class VolleyballRotations {
   }
 
   moveToAtkPos() {
+    this.moveToReceivePos();
     for (let pos = 1; pos <= 6; pos++) {
       const posElement = document.getElementById(`pos${pos}`);
       const targPos = this.targAtkPos[pos];
@@ -202,6 +214,7 @@ class VolleyballRotations {
   }
 
   moveToReceivePos() {
+    this.moveToInitialPos();
     for (let pos = 1; pos <= 6; pos++) {
       const posElement = document.getElementById(`pos${pos}`);
       const targPos = this.targReceivePos[pos];
@@ -221,6 +234,69 @@ class VolleyballRotations {
       (this.currentRotation - 1 + this.rotations.length) %
       this.rotations.length;
     this.updateRotation();
+  }
+
+  setupDevTools() {
+    this.selectedPlayer = 1;
+    document.getElementById("playerSelect").addEventListener("change", (e) => {
+      this.selectedPlayer = parseInt(e.target.value);
+      this.updateSliders();
+    });
+
+    ["top", "bottom", "left", "right"].forEach((prop) => {
+      document
+        .getElementById(`${prop}Slider`)
+        .addEventListener("input", (e) => {
+          this.updatePlayerPosition(prop, e.target.value + "px");
+        });
+    });
+
+    document.getElementById("generateCode").addEventListener("click", () => {
+      this.generateCode();
+    });
+  }
+
+  updateSliders() {
+    const posElement = document.getElementById(`pos${this.selectedPlayer}`);
+    const computed = getComputedStyle(posElement);
+
+    document.getElementById("topSlider").value = parseInt(computed.top) || 0;
+    document.getElementById("bottomSlider").value =
+      parseInt(computed.bottom) || 0;
+    document.getElementById("leftSlider").value = parseInt(computed.left) || 0;
+    document.getElementById("rightSlider").value =
+      parseInt(computed.right) || 0;
+  }
+
+  updatePlayerPosition(prop, value) {
+    const posElement = document.getElementById(`pos${this.selectedPlayer}`);
+    posElement.style[prop] = value;
+  }
+
+  generateCode() {
+    const positions = {};
+    for (let pos = 1; pos <= 6; pos++) {
+      const posElement = document.getElementById(`pos${pos}`);
+      const computed = getComputedStyle(posElement);
+      const cssObj = {};
+
+      if (computed.top !== "auto" && parseInt(computed.top) > 0)
+        cssObj.top = computed.top;
+      if (computed.bottom !== "auto" && parseInt(computed.bottom) > 0)
+        cssObj.bottom = computed.bottom;
+      if (computed.left !== "auto" && parseInt(computed.left) > 0)
+        cssObj.left = computed.left;
+      if (computed.right !== "auto" && parseInt(computed.right) > 0)
+        cssObj.right = computed.right;
+
+      positions[pos] = cssObj;
+    }
+
+    document.getElementById("codeOutput").value = JSON.stringify(
+      positions,
+      null,
+      2
+    );
   }
 
   init() {
@@ -243,6 +319,7 @@ class VolleyballRotations {
     document
       .getElementById("attackPos")
       .addEventListener("click", () => this.moveToAtkPos());
+    this.setupDevTools();
     this.updateRotation();
   }
 }

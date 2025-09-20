@@ -68,6 +68,32 @@
                 <span class="role-badge libero">L</span> Libero
             </div> -->
       </div>
+      
+      <div class="devtools">
+        <h3>Dev Tools</h3>
+        <div class="devtool-controls">
+          <label>Player: 
+            <select id="playerSelect">
+              <option value="1">Player 1</option>
+              <option value="2">Player 2</option>
+              <option value="3">Player 3</option>
+              <option value="4">Player 4</option>
+              <option value="5">Player 5</option>
+              <option value="6">Player 6</option>
+            </select>
+          </label>
+          
+          <div class="slider-group">
+            <label>Top: <input type="range" id="topSlider" min="0" max="400" value="0"></label>
+            <label>Bottom: <input type="range" id="bottomSlider" min="0" max="400" value="0"></label>
+            <label>Left: <input type="range" id="leftSlider" min="0" max="300" value="0"></label>
+            <label>Right: <input type="range" id="rightSlider" min="0" max="300" value="0"></label>
+          </div>
+          
+          <button id="generateCode">Generate Code</button>
+          <textarea id="codeOutput" rows="10" cols="50" placeholder="Generated code will appear here..."></textarea>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
