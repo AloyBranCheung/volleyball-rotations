@@ -579,8 +579,6 @@ class VolleyballRotations {
       const targPos = this.targReceivePos[pos];
       if (!targPos) continue;
       for (let cssProp in targPos.targCssObj) {
-        console.log({ cssProp, value: targPos.targCssObj[cssProp] });
-
         posElement.style[cssProp] = targPos.targCssObj[cssProp];
       }
     }
@@ -701,6 +699,7 @@ class VolleyballRotations {
   }
 
   init() {
+    console.log("Hi Thomas");
     document
       .getElementById("nextRotation")
       .addEventListener("click", () => this.nextRotation());
