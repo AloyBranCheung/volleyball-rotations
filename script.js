@@ -18,52 +18,52 @@ class VolleyballRotations {
   constructor() {
     this.playerMappings = [
       {
-        1: { player: 1, role: "S", class: "setter" },
-        2: { player: 2, role: "OH", class: "outside" },
-        3: { player: 3, role: "MB", class: "middle" },
-        4: { player: 4, role: "OH", class: "outside" },
-        5: { player: 5, role: "OH", class: "outside" },
-        6: { player: 6, role: "MB", class: "middle" },
+        1: new Position(1, "S", "setter"),
+        2: new Position(2, "OH", "outside"),
+        3: new Position(3, "MB", "middle"),
+        4: new Position(4, "OH", "outside"),
+        5: new Position(5, "OH", "outside"),
+        6: new Position(6, "MB", "middle"),
       },
       {
-        1: { player: 2, role: "OH", class: "outside" },
-        2: { player: 3, role: "MB", class: "middle" },
-        3: { player: 4, role: "OH", class: "outside" },
-        4: { player: 5, role: "OH", class: "outside" },
-        5: { player: 6, role: "MB", class: "middle" },
-        6: { player: 1, role: "S", class: "setter" },
+        1: new Position(2, "OH", "outside"),
+        2: new Position(3, "MB", "middle"),
+        3: new Position(4, "OH", "outside"),
+        4: new Position(5, "OH", "outside"),
+        5: new Position(6, "MB", "middle"),
+        6: new Position(1, "S", "setter"),
       },
       {
-        1: { player: 3, role: "MB", class: "middle" },
-        2: { player: 4, role: "OH", class: "outside" },
-        3: { player: 5, role: "OH", class: "outside" },
-        4: { player: 6, role: "MB", class: "middle" },
-        5: { player: 1, role: "S", class: "setter" },
-        6: { player: 2, role: "OH", class: "outside" },
+        1: new Position(3, "MB", "middle"),
+        2: new Position(4, "OH", "outside"),
+        3: new Position(5, "OH", "outside"),
+        4: new Position(6, "MB", "middle"),
+        5: new Position(1, "S", "setter"),
+        6: new Position(2, "OH", "outside"),
       },
       {
-        1: { player: 4, role: "OH", class: "outside" },
-        2: { player: 5, role: "OH", class: "outside" },
-        3: { player: 6, role: "MB", class: "middle" },
-        4: { player: 1, role: "S", class: "setter" },
-        5: { player: 2, role: "OH", class: "outside" },
-        6: { player: 3, role: "MB", class: "middle" },
+        1: new Position(4, "OH", "outside"),
+        2: new Position(5, "OH", "outside"),
+        3: new Position(6, "MB", "middle"),
+        4: new Position(1, "S", "setter"),
+        5: new Position(2, "OH", "outside"),
+        6: new Position(3, "MB", "middle"),
       },
       {
-        1: { player: 5, role: "OH", class: "outside" },
-        2: { player: 6, role: "MB", class: "middle" },
-        3: { player: 1, role: "S", class: "setter" },
-        4: { player: 2, role: "OH", class: "outside" },
-        5: { player: 3, role: "MB", class: "middle" },
-        6: { player: 4, role: "OH", class: "outside" },
+        1: new Position(5, "OH", "outside"),
+        2: new Position(6, "MB", "middle"),
+        3: new Position(1, "S", "setter"),
+        4: new Position(2, "OH", "outside"),
+        5: new Position(3, "MB", "middle"),
+        6: new Position(4, "OH", "outside"),
       },
       {
-        1: { player: 6, role: "MB", class: "middle" },
-        2: { player: 1, role: "S", class: "setter" },
-        3: { player: 2, role: "OH", class: "outside" },
-        4: { player: 3, role: "MB", class: "middle" },
-        5: { player: 4, role: "OH", class: "outside" },
-        6: { player: 5, role: "OH", class: "outside" },
+        1: new Position(6, "MB", "middle"),
+        2: new Position(1, "S", "setter"),
+        3: new Position(2, "OH", "outside"),
+        4: new Position(3, "MB", "middle"),
+        5: new Position(4, "OH", "outside"),
+        6: new Position(5, "OH", "outside"),
       },
     ];
 
@@ -211,10 +211,317 @@ class VolleyballRotations {
           }),
         },
       },
-      { name: "Rotation 3" },
-      { name: "Rotation 4" },
-      { name: "Rotation 5" },
-      { name: "Rotation 6" },
+      {
+        name: "Rotation 3",
+        receivePositions: {
+          1: new TargPosition(3, "MB", "middle", {
+            top: "231.633px",
+            bottom: "102.367px",
+            left: "237.633px",
+          }),
+          2: new TargPosition(4, "OH", "outside", {
+            top: "36px",
+            bottom: "298px",
+            left: "239px",
+          }),
+          3: new TargPosition(5, "OH", "outside", {
+            top: "231px",
+            bottom: "103px",
+            left: "2px",
+            right: "232px",
+          }),
+          4: new TargPosition(6, "MB", "middle", {
+            top: "33px",
+            bottom: "301px",
+            left: "1px",
+            right: "233px",
+          }),
+          5: new TargPosition(1, "S", "setter", {
+            top: "79px",
+            bottom: "255px",
+            left: "11px",
+            right: "223px",
+          }),
+          6: new TargPosition(2, "OH", "outside", {
+            top: "314px",
+            bottom: "20px",
+            left: "115px",
+            right: "119px",
+          }),
+        },
+        attackPositions: {
+          1: new TargPosition(3, "MB", "middle", {
+            top: "238.933px",
+            bottom: "95.0667px",
+            left: "159.933px",
+            right: "74.0667px",
+          }),
+          2: new TargPosition(4, "OH", "outside", {
+            top: "123.383px",
+            bottom: "210.617px",
+            left: "228.383px",
+            right: "5.61667px",
+          }),
+          3: new TargPosition(5, "OH", "outside", {
+            top: "120.833px",
+            bottom: "213.167px",
+            right: "234.167px",
+          }),
+          4: new TargPosition(6, "MB", "middle", {
+            top: "126.367px",
+            bottom: "207.633px",
+            left: "110.367px",
+            right: "123.633px",
+          }),
+          5: new TargPosition(1, "S", "setter", {
+            top: "10.6833px",
+            bottom: "323.317px",
+            left: "172.683px",
+            right: "61.3167px",
+          }),
+          6: new TargPosition(2, "OH", "outside", {
+            top: "238.933px",
+            bottom: "95.0667px",
+            left: "70.9333px",
+            right: "163.067px",
+          }),
+        },
+      },
+      {
+        name: "Rotation 4",
+        receivePositions: {
+          1: new TargPosition(4, "OH", "outside", {
+            top: "221.417px",
+            bottom: "112.583px",
+            left: "206.417px",
+            right: "27.5833px",
+          }),
+          2: new TargPosition(5, "OH", "outside", {
+            top: "60.5167px",
+            bottom: "273.483px",
+            left: "123.517px",
+            right: "110.483px",
+          }),
+          3: new TargPosition(6, "MB", "middle", {
+            top: "24.05px",
+            bottom: "309.95px",
+            left: "115.05px",
+            right: "118.95px",
+          }),
+          4: new TargPosition(1, "S", "setter", {
+            bottom: "334.467px",
+            left: "111.533px",
+            right: "122.467px",
+          }),
+          5: new TargPosition(2, "OH", "outside", {
+            top: "220.2px",
+            bottom: "113.8px",
+            left: "27.2px",
+            right: "206.8px",
+          }),
+          6: new TargPosition(3, "MB", "middle", {
+            top: "314px",
+            bottom: "20px",
+            left: "115px",
+            right: "119px",
+          }),
+        },
+        attackPositions: {
+          1: new TargPosition(4, "OH", "outside", {
+            top: "221.417px",
+            bottom: "112.583px",
+            left: "206.417px",
+            right: "27.5833px",
+          }),
+          2: new TargPosition(5, "OH", "outside", {
+            top: "118.683px",
+            bottom: "215.317px",
+            left: "238.683px",
+          }),
+          3: new TargPosition(6, "MB", "middle", {
+            top: "121px",
+            bottom: "213px",
+            left: "116px",
+            right: "118px",
+          }),
+          4: new TargPosition(1, "S", "setter", {
+            top: "5.63333px",
+            bottom: "328.367px",
+            left: "175.633px",
+            right: "58.3667px",
+          }),
+          5: new TargPosition(2, "OH", "outside", {
+            top: "220.2px",
+            bottom: "113.8px",
+            left: "27.2px",
+            right: "206.8px",
+          }),
+          6: new TargPosition(3, "MB", "middle", {
+            top: "253px",
+            bottom: "20px",
+            left: "115px",
+            right: "119px",
+          }),
+        },
+      },
+      {
+        name: "Rotation 5",
+        receivePositions: {
+          1: new TargPosition(5, "OH", "outside", {
+            top: "223.35px",
+            bottom: "110.65px",
+            left: "214.35px",
+            right: "19.65px",
+          }),
+          2: new TargPosition(6, "MB", "middle", {
+            top: "34.6333px",
+            bottom: "299.367px",
+            left: "149.633px",
+            right: "84.3667px",
+          }),
+          3: new TargPosition(1, "S", "setter", {
+            top: "4px",
+            bottom: "330px",
+            left: "125px",
+            right: "109px",
+          }),
+          4: new TargPosition(2, "OH", "outside", {
+            top: "59.7667px",
+            bottom: "274.233px",
+            left: "114.767px",
+            right: "119.233px",
+          }),
+          5: new TargPosition(3, "MB", "middle", {
+            top: "226.217px",
+            bottom: "107.783px",
+            left: "15.2167px",
+            right: "218.783px",
+          }),
+          6: new TargPosition(4, "OH", "outside", {
+            top: "312px",
+            bottom: "22px",
+            left: "121px",
+            right: "113px",
+          }),
+        },
+        attackPositions: {
+          1: new TargPosition(5, "OH", "outside", {
+            top: "149.933px",
+            bottom: "184.067px",
+            left: "208.933px",
+            right: "25.0667px",
+          }),
+          2: new TargPosition(6, "MB", "middle", {
+            top: "121.067px",
+            bottom: "212.933px",
+            left: "120.067px",
+            right: "113.933px",
+          }),
+          3: new TargPosition(1, "S", "setter", {
+            top: "3.68333px",
+            bottom: "330.317px",
+            left: "178.683px",
+            right: "55.3167px",
+          }),
+          4: new TargPosition(2, "OH", "outside", {
+            top: "121.45px",
+            bottom: "212.55px",
+            left: "18.45px",
+            right: "215.55px",
+          }),
+          5: new TargPosition(3, "MB", "middle", {
+            top: "226.217px",
+            bottom: "107.783px",
+            left: "15.2167px",
+            right: "218.783px",
+          }),
+          6: new TargPosition(4, "OH", "outside", {
+            top: "230.283px",
+            bottom: "103.717px",
+            left: "126.283px",
+            right: "107.717px",
+          }),
+        },
+      },
+      {
+        name: "Rotation 6",
+        receivePositions: {
+          1: new TargPosition(6, "MB", "middle", {
+            top: "226.267px",
+            bottom: "107.733px",
+            left: "213.267px",
+            right: "20.7333px",
+          }),
+          2: new TargPosition(1, "S", "setter", {
+            top: "27.2667px",
+            bottom: "306.733px",
+            left: "139.267px",
+            right: "94.7333px",
+          }),
+          3: new TargPosition(2, "OH", "outside", {
+            top: "57.5833px",
+            bottom: "276.417px",
+            left: "112.583px",
+            right: "121.417px",
+          }),
+          4: new TargPosition(3, "MB", "middle", {
+            top: "3.83333px",
+            bottom: "330.167px",
+            left: "102.833px",
+            right: "131.167px",
+          }),
+          5: new TargPosition(4, "OH", "outside", {
+            top: "233.767px",
+            bottom: "100.233px",
+            left: "16.7667px",
+            right: "217.233px",
+          }),
+          6: new TargPosition(5, "OH", "outside", {
+            top: "314px",
+            bottom: "20px",
+            left: "115px",
+            right: "119px",
+          }),
+        },
+        attackPositions: {
+          1: new TargPosition(6, "MB", "middle", {
+            top: "142.767px",
+            bottom: "191.233px",
+            left: "212.767px",
+            right: "21.2333px",
+          }),
+          2: new TargPosition(1, "S", "setter", {
+            top: "1.76667px",
+            bottom: "332.233px",
+            left: "178.767px",
+            right: "55.2333px",
+          }),
+          3: new TargPosition(2, "OH", "outside", {
+            top: "123.583px",
+            bottom: "210.417px",
+            left: "1.58333px",
+            right: "232.417px",
+          }),
+          4: new TargPosition(3, "MB", "middle", {
+            top: "120.567px",
+            bottom: "213.433px",
+            left: "107.567px",
+            right: "126.433px",
+          }),
+          5: new TargPosition(4, "OH", "outside", {
+            top: "233.767px",
+            bottom: "100.233px",
+            left: "16.7667px",
+            right: "217.233px",
+          }),
+          6: new TargPosition(5, "OH", "outside", {
+            top: "222.7px",
+            bottom: "111.3px",
+            left: "115.7px",
+            right: "118.3px",
+          }),
+        },
+      },
     ];
     this.currentRotation = 0;
     this.targReceivePos = this.rotations[0].receivePositions;
@@ -246,7 +553,7 @@ class VolleyballRotations {
       posElement.querySelector(".player-role").textContent = playerData.role;
       posElement.querySelector(
         ".player-role"
-      ).className = `player-role ${playerData.class}`;
+      ).className = `player-role ${playerData.cssClass}`;
     }
     this.moveToInitialPos();
 
