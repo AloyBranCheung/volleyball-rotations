@@ -1,0 +1,213 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+#rotationNumber {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.court {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin: 0 auto;
+  background: #8b4513;
+  border: 3px solid #333;
+  border-radius: 5px;
+}
+
+.net {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #333;
+  z-index: 10;
+}
+
+.positions {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.position {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.position:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.player-number {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.player-role {
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+/* Position coordinates for vertical half court */
+#pos1 {
+  bottom: 20px;
+  right: 20px;
+}
+#pos2 {
+  top: 40px;
+  right: 20px;
+}
+#pos3 {
+  top: 40px;
+  left: 115px;
+}
+#pos4 {
+  top: 40px;
+  left: 20px;
+}
+#pos5 {
+  bottom: 20px;
+  left: 20px;
+}
+#pos6 {
+  bottom: 20px;
+  left: 115px;
+}
+
+/* Role-based colors */
+.setter {
+  background: #ff6b6b;
+}
+.outside {
+  background: #4ecdc4;
+}
+.middle {
+  background: #45b7d1;
+}
+.libero {
+  background: #96ceb4;
+}
+
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.role-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+
+  .court {
+    width: 250px;
+    height: 350px;
+  }
+
+  .position {
+    width: 45px;
+    height: 45px;
+  }
+
+  .player-number {
+    font-size: 14px;
+  }
+
+  .player-role {
+    font-size: 10px;
+  }
+
+  #pos2 {
+    right: 75px;
+  }
+  #pos3 {
+    left: 75px;
+  }
+  #pos6 {
+    left: 75px;
+  }
+}

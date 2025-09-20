@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Volleyball Rotations</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Volleyball Rotations - 5-1 Formation</h1>
+
+      <div class="controls">
+        <button id="prevRotation">← Previous</button>
+        <span id="rotationNumber">Rotation 1</span>
+        <button id="nextRotation">Next →</button>
+      </div>
+
+      <div class="court">
+        <div class="net"></div>
+        <div class="positions">
+          <div class="position" id="pos1" data-position="1">
+            <span class="player-number">1</span>
+            <span class="player-role">S</span>
+          </div>
+          <div class="position" id="pos2" data-position="2">
+            <span class="player-number">2</span>
+            <span class="player-role">OH</span>
+          </div>
+          <div class="position" id="pos3" data-position="3">
+            <span class="player-number">3</span>
+            <span class="player-role">MB</span>
+          </div>
+          <div class="position" id="pos4" data-position="4">
+            <span class="player-number">4</span>
+            <span class="player-role">OH</span>
+          </div>
+          <div class="position" id="pos5" data-position="5">
+            <span class="player-number">5</span>
+            <span class="player-role">MB</span>
+          </div>
+          <div class="position" id="pos6" data-position="6">
+            <span class="player-number">6</span>
+            <span class="player-role">L</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <span class="role-badge setter">S</span> Setter
+        </div>
+        <div class="legend-item">
+          <span class="role-badge outside">OH</span> Outside Hitter
+        </div>
+        <div class="legend-item">
+          <span class="role-badge middle">MB</span> Middle Blocker
+        </div>
+        <!-- <div class="legend-item">
+                <span class="role-badge libero">L</span> Libero
+            </div> -->
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
