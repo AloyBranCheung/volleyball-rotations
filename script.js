@@ -24,7 +24,9 @@ class VolleyballRotations {
       4: { name: "fishyboom", role: "OH", cssClass: "outside", image: "public/fishyboom.jpg" },
       5: { name: "badbreath", role: "OH", cssClass: "outside", image: "public/badbreath.jpg" },
       6: { name: "bagasama", role: "MB", cssClass: "middle", image: "public/bagasama.jpg" },
+      7: { name: "fierymeatpipes", role: "SUB", cssClass: "substitute", image: "public/fierymeatpipes.jpg" },
     };
+    this.createSubstitute();
     this.playerMappings = [
       {
         1: new Position(1, "S", "setter"),
@@ -575,6 +577,35 @@ class VolleyballRotations {
     this.targAtkPos = rotation.attackPositions;
   }
 
+  createSubstitute() {
+    const sidelineRight = document.getElementById("sideline-right");
+    const subElement = document.createElement("div");
+    subElement.className = "substitute position";
+    subElement.id = "sub1";
+    subElement.style.position = "absolute";
+    subElement.style.right = "-80px";
+    subElement.style.top = "50%";
+    subElement.style.transform = "translateY(-50%)";
+    
+    const imgElement = document.createElement("img");
+    imgElement.className = "player-image";
+    imgElement.src = this.playerData[7].image;
+    imgElement.alt = this.playerData[7].name;
+    
+    const numberElement = document.createElement("span");
+    numberElement.className = "player-number";
+    numberElement.textContent = "SUB";
+    
+    const roleElement = document.createElement("span");
+    roleElement.className = "player-role";
+    roleElement.textContent = "";
+    
+    subElement.appendChild(imgElement);
+    subElement.appendChild(numberElement);
+    subElement.appendChild(roleElement);
+    document.querySelector(".court").appendChild(subElement);
+  }
+
   updateDisplay() {
     for (let pos = 1; pos <= 6; pos++) {
       const posElement = document.getElementById(`pos${pos}`);
@@ -653,8 +684,9 @@ class VolleyballRotations {
   }
 
   setupDrag() {
-    for (let pos = 1; pos <= 6; pos++) {
-      const posElement = document.getElementById(`pos${pos}`);
+    const allPositions = [1, 2, 3, 4, 5, 6, 'sub1'];
+    for (let pos of allPositions) {
+      const posElement = document.getElementById(typeof pos === 'string' ? pos : `pos${pos}`);
       let isDragging = false;
       let startX, startY, startLeft, startTop;
 
@@ -669,6 +701,8 @@ class VolleyballRotations {
         startLeft = rect.left - courtRect.left;
         startTop = rect.top - courtRect.top;
         posElement.style.cursor = "grabbing";
+        posElement.style.position = "absolute";
+        posElement.style.transform = "none";
         e.preventDefault();
       });
 
