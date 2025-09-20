@@ -16,6 +16,15 @@ class TargPosition extends Position {
 
 class VolleyballRotations {
   constructor() {
+    this.showImages = true;
+    this.playerData = {
+      1: { name: "mas", role: "S", cssClass: "setter", image: "public/mas.jpg" },
+      2: { name: "ryujin", role: "OH", cssClass: "outside", image: "public/ryujin.jpg" },
+      3: { name: "lostsock", role: "MB", cssClass: "middle", image: "public/lostsock.jpg" },
+      4: { name: "fishyboom", role: "OH", cssClass: "outside", image: "public/fishyboom.jpg" },
+      5: { name: "badbreath", role: "OH", cssClass: "outside", image: "public/badbreath.jpg" },
+      6: { name: "bagasama", role: "MB", cssClass: "middle", image: "public/bagasama.jpg" },
+    };
     this.playerMappings = [
       {
         1: new Position(1, "S", "setter"),
@@ -549,16 +558,63 @@ class VolleyballRotations {
     for (let pos = 1; pos <= 6; pos++) {
       const posElement = document.getElementById(`pos${pos}`);
       const playerData = playerMapping[pos];
+      const actualPlayer = this.playerData[playerData.player];
+      
       posElement.querySelector(".player-number").textContent = pos;
       posElement.querySelector(".player-role").textContent = playerData.role;
-      posElement.querySelector(
-        ".player-role"
-      ).className = `player-role ${playerData.cssClass}`;
+      posElement.querySelector(".player-role").className = `player-role ${playerData.cssClass}`;
+      
+      const imgElement = posElement.querySelector(".player-image");
+      imgElement.src = actualPlayer.image;
+      imgElement.alt = actualPlayer.name;
     }
+    this.updateDisplay();
     this.moveToInitialPos();
 
     this.targReceivePos = rotation.receivePositions;
     this.targAtkPos = rotation.attackPositions;
+  }
+
+  updateDisplay() {
+    for (let pos = 1; pos <= 6; pos++) {
+      const posElement = document.getElementById(`pos${pos}`);
+      const imgElement = posElement.querySelector(".player-image");
+      const numberElement = posElement.querySelector(".player-number");
+      const roleElement = posElement.querySelector(".player-role");
+      
+      if (this.showImages) {
+        imgElement.style.display = "block";
+        numberElement.style.display = "none";
+        roleElement.style.display = "none";
+      } else {
+        imgElement.style.display = "none";
+        numberElement.style.display = "block";
+        roleElement.style.display = "block";
+      }
+    }
+    
+    const subElement = document.getElementById("sub1");
+    if (subElement) {
+      const subImg = subElement.querySelector(".player-image");
+      const subNumber = subElement.querySelector(".player-number");
+      const subRole = subElement.querySelector(".player-role");
+      
+      if (this.showImages) {
+        subImg.style.display = "block";
+        subNumber.style.display = "none";
+        subRole.style.display = "block";
+      } else {
+        subImg.style.display = "none";
+        subNumber.style.display = "block";
+        subRole.style.display = "none";
+      }
+    }
+  }
+
+  toggleDisplay() {
+    this.showImages = !this.showImages;
+    document.getElementById("toggleDisplay").textContent = this.showImages ? "Show Text" : "Show Images";
+    this.updateDisplay();
   }
 
   moveToInitialPos() {
@@ -719,6 +775,9 @@ class VolleyballRotations {
     document
       .getElementById("attackPos")
       .addEventListener("click", () => this.moveToAtkPos());
+    document
+      .getElementById("toggleDisplay")
+      .addEventListener("click", () => this.toggleDisplay());
     this.setupDevTools();
     this.setupDrag();
     this.updateRotation();
