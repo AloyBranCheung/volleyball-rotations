@@ -52,7 +52,33 @@ class VolleyballRotations {
           }),
           2: new TargPosition(2, "OH", "outside", {
             top: "260px",
+            right: "20px",
+          }),
+          3: new TargPosition(3, "MB", "middle", {
+            bottom: "10px",
             right: "10px",
+          }),
+          4: new TargPosition(4, "OH", "outside", {
+            bottom: "10px",
+            right: "10px",
+          }),
+          5: new TargPosition(5, "OH", "outside", {
+            bottom: "70px",
+            right: "10px",
+          }),
+          6: new TargPosition(6, "MB", "middle", {
+            bottom: "10px",
+            right: "10px",
+          }),
+        },
+        attackPositions: {
+          1: new TargPosition(1, "S", "setter", {
+            bottom: "10px",
+            right: "10px",
+          }),
+          2: new TargPosition(2, "OH", "outside", {
+            top: "260px",
+            right: "20px",
           }),
           3: new TargPosition(3, "MB", "middle", {
             bottom: "10px",
@@ -131,7 +157,18 @@ class VolleyballRotations {
     ];
     this.currentRotation = 0;
     this.targReceivePos = this.rotations[0].receivePositions;
+    this.targAtkPos = this.rotations[0].attackPositions;
     this.init();
+  }
+
+  moveToAtkPos() {
+    for (let pos = 1; pos <= 6; pos++) {
+      const posElement = document.getElementById(`pos${pos}`);
+      const targPos = this.targAtkPos[pos];
+      for (let cssProp in targPos.targCssObj) {
+        posElement.style[cssProp] = targPos.targCssObj[cssProp];
+      }
+    }
   }
 
   updateRotation() {
@@ -151,6 +188,7 @@ class VolleyballRotations {
     this.moveToInitialPos();
 
     this.targReceivePos = rotation.receivePositions;
+    this.targAtkPos = rotation.attackPositions;
   }
 
   moveToInitialPos() {
@@ -202,6 +240,9 @@ class VolleyballRotations {
     document
       .getElementById("resetPos")
       .addEventListener("click", () => this.moveToInitialPos());
+    document
+      .getElementById("attackPos")
+      .addEventListener("click", () => this.moveToAtkPos());
     this.updateRotation();
   }
 }
