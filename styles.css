@@ -101,8 +101,9 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: grab;
   transition: all 0.3s ease;
+  user-select: none;
 }
 
 .position:hover {

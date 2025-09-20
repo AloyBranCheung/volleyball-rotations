@@ -16,35 +16,60 @@ class TargPosition extends Position {
 
 class VolleyballRotations {
   constructor() {
+    this.playerMappings = [
+      {
+        1: { player: 1, role: "S", class: "setter" },
+        2: { player: 2, role: "OH", class: "outside" },
+        3: { player: 3, role: "MB", class: "middle" },
+        4: { player: 4, role: "OH", class: "outside" },
+        5: { player: 5, role: "OH", class: "outside" },
+        6: { player: 6, role: "MB", class: "middle" },
+      },
+      {
+        1: { player: 2, role: "OH", class: "outside" },
+        2: { player: 3, role: "MB", class: "middle" },
+        3: { player: 4, role: "OH", class: "outside" },
+        4: { player: 5, role: "OH", class: "outside" },
+        5: { player: 6, role: "MB", class: "middle" },
+        6: { player: 1, role: "S", class: "setter" },
+      },
+      {
+        1: { player: 3, role: "MB", class: "middle" },
+        2: { player: 4, role: "OH", class: "outside" },
+        3: { player: 5, role: "OH", class: "outside" },
+        4: { player: 6, role: "MB", class: "middle" },
+        5: { player: 1, role: "S", class: "setter" },
+        6: { player: 2, role: "OH", class: "outside" },
+      },
+      {
+        1: { player: 4, role: "OH", class: "outside" },
+        2: { player: 5, role: "OH", class: "outside" },
+        3: { player: 6, role: "MB", class: "middle" },
+        4: { player: 1, role: "S", class: "setter" },
+        5: { player: 2, role: "OH", class: "outside" },
+        6: { player: 3, role: "MB", class: "middle" },
+      },
+      {
+        1: { player: 5, role: "OH", class: "outside" },
+        2: { player: 6, role: "MB", class: "middle" },
+        3: { player: 1, role: "S", class: "setter" },
+        4: { player: 2, role: "OH", class: "outside" },
+        5: { player: 3, role: "MB", class: "middle" },
+        6: { player: 4, role: "OH", class: "outside" },
+      },
+      {
+        1: { player: 6, role: "MB", class: "middle" },
+        2: { player: 1, role: "S", class: "setter" },
+        3: { player: 2, role: "OH", class: "outside" },
+        4: { player: 3, role: "MB", class: "middle" },
+        5: { player: 4, role: "OH", class: "outside" },
+        6: { player: 5, role: "OH", class: "outside" },
+      },
+    ];
+
     this.rotations = [
       {
         name: "Rotation 1",
-        positions: {
-          1: new TargPosition(1, "S", "setter", {
-            bottom: "20px",
-            right: "20px",
-          }),
-          2: new TargPosition(2, "OH", "outside", {
-            top: "40px",
-            right: "20px",
-          }),
-          3: new TargPosition(3, "MB", "middle", {
-            top: "40px",
-            left: "115px",
-          }),
-          4: new TargPosition(4, "OH", "outside", {
-            top: "40px",
-            left: "20px",
-          }),
-          5: new TargPosition(5, "OH", "outside", {
-            bottom: "20px",
-            left: "20px",
-          }),
-          6: new TargPosition(6, "MB", "middle", {
-            bottom: "20px",
-            left: "115px",
-          }),
-        },
         receivePositions: {
           1: new TargPosition(1, "S", "setter", {
             bottom: "10px",
@@ -111,60 +136,85 @@ class VolleyballRotations {
       },
       {
         name: "Rotation 2",
-        positions: {
-          1: new Position(2, "OH", "outside"),
-          2: new Position(3, "MB", "middle"),
-          3: new Position(4, "OH", "outside"),
-          4: new Position(5, "OH", "outside"),
-          5: new Position(6, "MB", "middle"),
-          6: new Position(1, "S", "setter"),
+        receivePositions: {
+          1: new TargPosition(2, "OH", "outside", {
+            top: "214.483px",
+            bottom: "119.517px",
+            left: "228.483px",
+            right: "5.51667px",
+          }),
+          2: new TargPosition(3, "MB", "middle", {
+            top: "24.0333px",
+            bottom: "309.967px",
+            left: "214.033px",
+            right: "19.9667px",
+          }),
+          3: new TargPosition(4, "OH", "outside", {
+            top: "7.18333px",
+            bottom: "326.817px",
+            left: "159.183px",
+            right: "74.8167px",
+          }),
+          4: new TargPosition(5, "OH", "outside", {
+            top: "216px",
+            bottom: "118px",
+            left: "8.68333px",
+            right: "225.317px",
+          }),
+          5: new TargPosition(6, "MB", "middle", {
+            top: "315.017px",
+            bottom: "18.9833px",
+            left: "116.017px",
+            right: "117.983px",
+          }),
+          6: new TargPosition(1, "S", "setter", {
+            top: "80.0667px",
+            bottom: "253.933px",
+            left: "180.067px",
+            right: "53.9333px",
+          }),
         },
-        receivePositions: "receive 2",
-      },
-      {
-        name: "Rotation 3",
-        positions: {
-          1: new Position(3, "MB", "middle"),
-          2: new Position(4, "OH", "outside"),
-          3: new Position(5, "OH", "outside"),
-          4: new Position(6, "MB", "middle"),
-          5: new Position(1, "S", "setter"),
-          6: new Position(2, "OH", "outside"),
+        attackPositions: {
+          1: new TargPosition(2, "OH", "outside", {
+            top: "242px",
+            bottom: "92px",
+            left: "172.65px",
+            right: "61.35px",
+          }),
+          2: new TargPosition(3, "MB", "middle", {
+            top: "127.033px",
+            bottom: "206.967px",
+            left: "123.033px",
+            right: "110.967px",
+          }),
+          3: new TargPosition(4, "OH", "outside", {
+            top: "124.6px",
+            bottom: "209.4px",
+            left: "242.6px",
+          }),
+          4: new TargPosition(5, "OH", "outside", {
+            top: "126.483px",
+            bottom: "207.517px",
+            right: "236.833px",
+          }),
+          5: new TargPosition(6, "MB", "middle", {
+            top: "242.233px",
+            bottom: "91.7667px",
+            left: "70.2333px",
+            right: "163.767px",
+          }),
+          6: new TargPosition(1, "S", "setter", {
+            top: "8.26667px",
+            bottom: "325.733px",
+            left: "183.267px",
+            right: "50.7333px",
+          }),
         },
       },
-      {
-        name: "Rotation 4",
-        positions: {
-          1: new Position(4, "OH", "outside"),
-          2: new Position(5, "OH", "outside"),
-          3: new Position(6, "MB", "middle"),
-          4: new Position(1, "S", "setter"),
-          5: new Position(2, "OH", "outside"),
-          6: new Position(3, "MB", "middle"),
-        },
-      },
-      {
-        name: "Rotation 5",
-        positions: {
-          1: new Position(5, "OH", "outside"),
-          2: new Position(6, "MB", "middle"),
-          3: new Position(1, "S", "setter"),
-          4: new Position(2, "OH", "outside"),
-          5: new Position(3, "MB", "middle"),
-          6: new Position(4, "OH", "outside"),
-        },
-      },
-      {
-        name: "Rotation 6",
-        positions: {
-          1: new Position(6, "MB", "middle"),
-          2: new Position(1, "S", "setter"),
-          3: new Position(2, "OH", "outside"),
-          4: new Position(3, "MB", "middle"),
-          5: new Position(4, "OH", "outside"),
-          6: new Position(5, "OH", "outside"),
-        },
-      },
+      { name: "Rotation 3" },
+      { name: "Rotation 4" },
+      { name: "Rotation 5" },
+      { name: "Rotation 6" },
     ];
     this.currentRotation = 0;
     this.targReceivePos = this.rotations[0].receivePositions;
@@ -173,10 +223,11 @@ class VolleyballRotations {
   }
 
   moveToAtkPos() {
-    this.moveToReceivePos();
+    if (!this.targAtkPos) return;
     for (let pos = 1; pos <= 6; pos++) {
       const posElement = document.getElementById(`pos${pos}`);
       const targPos = this.targAtkPos[pos];
+      if (!targPos) continue;
       for (let cssProp in targPos.targCssObj) {
         posElement.style[cssProp] = targPos.targCssObj[cssProp];
       }
@@ -185,17 +236,17 @@ class VolleyballRotations {
 
   updateRotation() {
     const rotation = this.rotations[this.currentRotation];
+    const playerMapping = this.playerMappings[this.currentRotation];
     document.getElementById("rotationNumber").textContent = rotation.name;
 
     for (let pos = 1; pos <= 6; pos++) {
       const posElement = document.getElementById(`pos${pos}`);
-      const playerData = rotation.positions[pos];
-      posElement.querySelector(".player-number").textContent =
-        playerData.player;
+      const playerData = playerMapping[pos];
+      posElement.querySelector(".player-number").textContent = pos;
       posElement.querySelector(".player-role").textContent = playerData.role;
       posElement.querySelector(
         ".player-role"
-      ).className = `player-role ${playerData.cssClass}`;
+      ).className = `player-role ${playerData.class}`;
     }
     this.moveToInitialPos();
 
@@ -215,10 +266,14 @@ class VolleyballRotations {
 
   moveToReceivePos() {
     this.moveToInitialPos();
+    if (!this.targReceivePos) return;
     for (let pos = 1; pos <= 6; pos++) {
       const posElement = document.getElementById(`pos${pos}`);
       const targPos = this.targReceivePos[pos];
+      if (!targPos) continue;
       for (let cssProp in targPos.targCssObj) {
+        console.log({ cssProp, value: targPos.targCssObj[cssProp] });
+
         posElement.style[cssProp] = targPos.targCssObj[cssProp];
       }
     }
@@ -234,6 +289,45 @@ class VolleyballRotations {
       (this.currentRotation - 1 + this.rotations.length) %
       this.rotations.length;
     this.updateRotation();
+  }
+
+  setupDrag() {
+    for (let pos = 1; pos <= 6; pos++) {
+      const posElement = document.getElementById(`pos${pos}`);
+      let isDragging = false;
+      let startX, startY, startLeft, startTop;
+
+      posElement.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startY = e.clientY;
+        const rect = posElement.getBoundingClientRect();
+        const courtRect = document
+          .querySelector(".court")
+          .getBoundingClientRect();
+        startLeft = rect.left - courtRect.left;
+        startTop = rect.top - courtRect.top;
+        posElement.style.cursor = "grabbing";
+        e.preventDefault();
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        const deltaX = e.clientX - startX;
+        const deltaY = e.clientY - startY;
+        posElement.style.left = startLeft + deltaX + "px";
+        posElement.style.top = startTop + deltaY + "px";
+        posElement.style.right = "auto";
+        posElement.style.bottom = "auto";
+      });
+
+      document.addEventListener("mouseup", () => {
+        if (isDragging) {
+          isDragging = false;
+          posElement.style.cursor = "pointer";
+        }
+      });
+    }
   }
 
   setupDevTools() {
@@ -320,6 +414,7 @@ class VolleyballRotations {
       .getElementById("attackPos")
       .addEventListener("click", () => this.moveToAtkPos());
     this.setupDevTools();
+    this.setupDrag();
     this.updateRotation();
   }
 }
